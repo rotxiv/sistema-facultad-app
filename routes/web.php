@@ -59,7 +59,6 @@ Route::middleware(['auth'])->group( function () {
 
     //Rutas para el modulo docente
     Route::get('dashboard-docente', [DocenteController::class, 'dashboard'])->name('docente.dashboard');
-    //Route::post('docentes/asistencia', [DocenteController::class, 'asistencia'])->name('docentes.asistencia');
     Route::get('docentes/deletedIndex', [DocenteController::class, 'deletedIndex'])->name('docentes.deleted-index');
     Route::patch('docentes/reactivate/{id}', [DocenteController::class, 'reactivate'])->name('docentes.reactivar');
     Route::post('docentes/assign', [DocenteController::class, 'assign'])->name('docentes.asignar-materia');
@@ -103,12 +102,11 @@ Route::middleware(['auth'])->group( function () {
 
     //Rutas para modulo semestres
     Route::get('semestres/deletedIndex', [SemestreController::class, 'deletedIndex'])->name('semestres.deleted-index');
-    //Route::patch('semestres/reactivate/{id}', [SemestreController::class, 'reactivate'])->name('semestres.reactivar');
     Route::resource('semestres', SemestreController::class);
 
     //Rutas para modulo horarios
-    Route::get('horarios/deletedIndex', [HorarioController::class, 'deletedIndex'])->name('asignaturas.deleted-index');
-    Route::patch('horarios/reactivate/{id}', [HorarioController::class, 'reactivate'])->name('asignaturas.reactivar');
+    Route::get('horarios/deletedIndex', [HorarioController::class, 'deletedIndex'])->name('horarios.deleted-index');
+    Route::patch('horarios/reactivate/{id}', [HorarioController::class, 'reactivate'])->name('horarios.reactivar');
     Route::resource('horarios', HorarioController::class);
 
     //Rutas para modulo asistencias
