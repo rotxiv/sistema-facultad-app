@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <title>{{ config('app.name', 'Flowbite and Laravel Starter') }}</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+
+        <!-- Styles / Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        {{-- FullCalendar desde CDN --}}
+        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    </head>
+    <body class="min-h-screen bg-gray-100 flex flex-col">
+        <!-- Barra superior -->
+        <x-layouts.app.nav :title="$title ?? null" />
+
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar -->
+            <!-- <aside class="w-64 bg-white shadow-md">
+                <x-layouts.app.sidebar />
+            </aside> -->
+
+            <!-- Contenido principal -->
+            <main class="flex-1 p-6 overflow-y-auto">
+                {{ $slot }}
+            </main>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    </body>
+</html>
